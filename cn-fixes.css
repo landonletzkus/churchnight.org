@@ -40,3 +40,12 @@
 @media (max-width: 640px) {
   .sqs-gallery-block-grid .slide { width: 50%; }
 }
+
+/* Image-block "card" captions: Squarespace keeps .sqs-dynamic-text hidden
+   (visibility:hidden) until its JS measures the text and adds .sqs-text-ready.
+   With the JS stripped that class never lands, so caption text stays invisible
+   on a black card. Reveal it statically. (Font sizing is restored separately by
+   dropping the body's image-block-card-dynamic-font-sizing class.) */
+.image-block-outer-wrapper .sqs-dynamic-text {
+  visibility: visible !important;
+}
