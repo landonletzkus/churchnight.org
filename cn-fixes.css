@@ -21,7 +21,6 @@
 }
 
 .sqs-gallery-block-grid .slide .margin-wrapper,
-.sqs-gallery-block-grid .slide a.image-slide-anchor,
 .sqs-gallery-block-grid .slide .content-wrapper {
   position: static !important;
   display: block;
@@ -29,11 +28,28 @@
   padding-bottom: 0 !important;
 }
 
+/* Make every thumbnail a uniform square, center-cropped: the anchor becomes a
+   1:1 box and the image covers it. The anchor's href still points at the
+   full-size image, so a click opens the full version. */
+.sqs-gallery-block-grid .slide a.image-slide-anchor {
+  position: relative !important;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto !important;
+  padding-bottom: 0 !important;
+  overflow: hidden;
+}
+
 .sqs-gallery-block-grid .slide img.thumb-image {
   opacity: 1 !important;
-  position: static !important;
+  position: absolute !important;
+  top: 0;
+  left: 0;
   width: 100% !important;
-  height: auto !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: 50% 50%;
   display: block;
 }
 
