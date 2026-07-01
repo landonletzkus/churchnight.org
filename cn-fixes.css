@@ -41,6 +41,20 @@
   .sqs-gallery-block-grid .slide { width: 50%; }
 }
 
+/* Homepage "Blessings & Light" image-card block (design-layout-card): a flex
+   row of image (left 50%) + black caption card (right 50%). Squarespace's JS
+   normally balances the two halves; without it the text card runs taller than
+   the image, so the image half exposes the white page (mismatched black boxes
+   with gaps). Paint the whole figure black so both halves read as one unified
+   banner, and vertically center the image in its stretched column. */
+.design-layout-card {
+  background-color: #000;
+}
+.design-layout-card:not(.sqs-narrow-width) > .intrinsic {
+  display: flex;
+  align-items: center;
+}
+
 /* Image-block "card" captions: Squarespace keeps .sqs-dynamic-text hidden
    (visibility:hidden) until its JS measures the text and adds .sqs-text-ready.
    With the JS stripped that class never lands, so caption text stays invisible
@@ -56,6 +70,7 @@
 #main-navigation ul li a,
 #mobile-navigation ul li a {
   font-family: 'Germania One', display, cursive !important;
+  font-size: 24px !important;
 }
 
 /* Forced line break in the nav: the desktop nav lays items out as centered
